@@ -7,7 +7,7 @@ const SingleCard = ({ singleCard }) => {
 
     return (
         <div>
-            <Link to={`/donation/${id}`}>
+            <Link to={`/details/${id}`}>
                 <div style={{ backgroundColor: style.card_bg }} className='rounded-lg'>
                     <img className='h-[170px] w-full' src={card_img} alt="" />
                     <div className='p-3'>
