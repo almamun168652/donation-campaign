@@ -26,7 +26,7 @@ const Donation = () => {
             {
                 noFound ? <p className="mt-36 text-2xl font-bold flex items-center justify-center">{noFound}</p> : <div>
                     <div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                             {
                                 isShow ? donates.map(donateItem => <AllDonation key={donateItem.id} donateItem={donateItem}></AllDonation>)
                                     :
