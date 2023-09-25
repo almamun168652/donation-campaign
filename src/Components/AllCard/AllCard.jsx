@@ -17,7 +17,7 @@ const AllCard = ({showCards , inputValue , isTrueBtn}) => {
 
     
     return (
-        <div className='max-w-screen-xl mx-auto px-4 md:px-8 mb-4 md:mb-0'>
+        <div className='max-w-screen-xl mx-auto px-4 md:px-8 mb-4'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-10'>
                 {
                     isTrueBtn ? searchData.map(singleCard => <SingleCard key={singleCard.id} singleCard={singleCard}></SingleCard>) 

@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
 
-
 const Navbar = () => {
 
     const loc = useLocation();
@@ -9,7 +8,7 @@ const Navbar = () => {
         <div className={loc.pathname === '/' ? 'absolute w-full' : 'w-full'}>
             <div className="my-5 max-w-screen-xl px-4 md:px-8 mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div className="mb-4 md:mb-0">
-                    <img className="w-52" src="../../../public/logo.png" alt="logo" />
+                    <img className="w-52" src="./logo.png" alt="logo" />
                 </div>
                 <ul className="flex gap-10">
                     <li className="font-semibold">
