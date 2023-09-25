@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import SingleCard from '../SingleCard/SingleCard';
 
-const AllCard = ({allCards}) => {
+const AllCard = ({showCards}) => {
+
     
     return (
         <div className='max-w-screen-xl mx-auto px-4 md:px-8'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-10'>
                 {
-                    allCards?.map(singleCard => <SingleCard key={singleCard.id} singleCard={singleCard}></SingleCard>)
+                    showCards.map(singleCard => <SingleCard key={singleCard.id} singleCard={singleCard}></SingleCard>)
                 }
             </div>
         </div>
@@ -15,7 +16,7 @@ const AllCard = ({allCards}) => {
 };
 
 AllCard.propTypes = {
-    allCards: PropTypes.array.isRequired
+    showCards: PropTypes.array.isRequired
 }
 
 export default AllCard;

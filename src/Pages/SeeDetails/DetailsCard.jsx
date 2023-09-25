@@ -1,8 +1,29 @@
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 
-const DetailsCard = ({ cardDetails }) => {
+const DetailsCard = ({ details }) => {
 
-    const { card_img, style, price, title, description } = cardDetails || {};
+    const {id , card_img, style, price, title, description } = details || {};
+
+    const handleAddToDonate = () => {
+        const addedDonate = [];
+        const donationsItem = JSON.parse(localStorage.getItem('donations'));
+
+        if(!donationsItem){
+            addedDonate.push(details);
+            localStorage.setItem('donations' , JSON.stringify(addedDonate));
+            swal("Done!", "Your Donation Successfully!", "success");
+        }else{
+            const isExists = donationsItem.find(donation => donation.id === id);
+            if(!isExists){
+                addedDonate.push(...donationsItem , details);
+                localStorage.setItem('donations' , JSON.stringify(addedDonate));
+                swal("Done!", "Your Donation Successfully!", "success");
+            }else{
+                swal("Sorry!", "Already Donated!", "error");
+            }
+        }
+    }
 
     return (
         <div>
@@ -10,7 +31,7 @@ const DetailsCard = ({ cardDetails }) => {
                 <div className='relative'>
                     <img className='w-full h-auto' src={card_img} alt="" />
                     <div className='absolute bottom-0 w-full bg-[#0B0B0B80] py-4 md:py-8'>
-                        <button className='mx-10 py-2 rounded px-4 font-semibold text-white' style={{ backgroundColor: style?.t_b_color }}>Donate ${price}</button>
+                        <button onClick={handleAddToDonate} className='mx-10 py-2 rounded px-4 font-semibold text-white' style={{ backgroundColor: style?.t_b_color }}>Donate ${price}</button>
                     </div>
                 </div>
                 <h1 className='text-[#0B0B0B] text-3xl font-bold my-5'>{title}</h1>
@@ -22,7 +43,7 @@ const DetailsCard = ({ cardDetails }) => {
 
 
 DetailsCard.propTypes = {
-    cardDetails: PropTypes.object.isRequired
+    details: PropTypes.object
 }
 
 export default DetailsCard;

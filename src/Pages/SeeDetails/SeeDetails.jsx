@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import DetailsCard from "./DetailsCard";
@@ -5,21 +6,24 @@ import DetailsCard from "./DetailsCard";
 
 const SeeDetails = () => {
 
-    const [cardDetails, setcardDetails] = useState();
+    const [details , setDetials] = useState();
 
     const { id } = useParams();
-    const allCard = useLoaderData();
+    const allDonates = useLoaderData();
 
-    useEffect(() => {
 
-        const findCard = allCard?.find(card => card.id === id);
-        setcardDetails(findCard);
+    useEffect(()=>{
 
-    }, [id, allCard])
+        const findDetails = allDonates.find(donate => donate.id == id);
+        setDetials(findDetails);
+
+    },[allDonates , id])
 
     return (
         <div className="max-w-screen-xl mx-auto px-4 md:px-8 my-20">
-            <DetailsCard cardDetails={cardDetails}></DetailsCard>
+
+           <DetailsCard details={details}></DetailsCard>
+
         </div>
     );
 };
