@@ -2,9 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import HomePage from "../Pages/Home/HomePage";
-import Donation from "../Pages/donation/donation";
 import Statistics from "../Pages/Statistics/Statistics";
 import SeeDetails from "../Pages/SeeDetails/SeeDetails";
+import Donation from "../Pages/Donation/Donation";
 
 
 const myCreatedRoute = createBrowserRouter([

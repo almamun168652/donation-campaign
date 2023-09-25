@@ -12,10 +12,15 @@ const PaiChart = () => {
         setDonateCount(donationsItem)
     } , [])
 
+    let donate = 0;
+    if(donateCount){
+        donate = donateCount.length;
+    }
+
     
     const data = [
-        { name: 'Group A', value: 12 },
-        { name: 'Group B', value: donateCount.length }
+        { name: 'Group A', value: 100 - ( donate / 12 * 100)},
+        { name: 'Group B', value: donate / 12 * 100 }
     ];
 
     const COLORS = ['#FF444A', '#00C49F'];
@@ -28,8 +33,8 @@ const PaiChart = () => {
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
         return (
-            <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-                {`${(percent * 100).toFixed(0)}%`}
+            <text className='' x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+                {`${(percent * 100).toFixed(1)}%`}
             </text>
         );
     };
@@ -53,7 +58,7 @@ const PaiChart = () => {
                     </Pie>
                 </PieChart>
             </div>
-            <div className='w-full text-center flex flex-col md:flex-row md:gap-10'>
+            <div className='w-full text-center md:mt-10 flex flex-col md:flex-row md:gap-10'>
                 <div className='flex gap-2 items-center justify-center'>
                     <span className='font-semibold'>Your Donation</span>
                     <img className='h-3 mt-1' src='./../../../public/donation-green.png' alt="" />
