@@ -1,15 +1,24 @@
 
+import { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
 
 
 const PaiChart = () => {
 
+    const [donateCount , setDonateCount] = useState([]);
+
+    useEffect(()=> {
+        const donationsItem = JSON.parse(localStorage.getItem('donations'));
+        setDonateCount(donationsItem)
+    } , [])
+
+    
     const data = [
-        { name: 'Group A', value: 66.67 },
-        { name: 'Group B', value: 33.33 },
+        { name: 'Group A', value: 12 },
+        { name: 'Group B', value: donateCount.length }
     ];
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const COLORS = ['#FF444A', '#00C49F'];
     const RADIAN = Math.PI / 180;
 
 
@@ -26,15 +35,15 @@ const PaiChart = () => {
     };
 
     return (
-        <div style={{height: '500px'}}>
-                <PieChart width={400} height={400}>
+        <div>
+            <div className='flex justify-center'>
+                <PieChart width={300} height={300}>
                     <Pie
                         data={data}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={80}
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -43,6 +52,17 @@ const PaiChart = () => {
                         ))}
                     </Pie>
                 </PieChart>
+            </div>
+            <div className='w-full text-center flex flex-col md:flex-row md:gap-10'>
+                <div className='flex gap-2 items-center justify-center'>
+                    <span className='font-semibold'>Your Donation</span>
+                    <img className='h-3 mt-1' src='./../../../public/donation-green.png' alt="" />
+                </div>
+                <div className='flex gap-2 items-center justify-center'>
+                    <span className='font-semibold'>Total Donation</span>
+                    <img className='h-3 mt-1' src='./../../../public/donation-red.png' alt="" />
+                </div>
+            </div>
         </div>
     );
 };
