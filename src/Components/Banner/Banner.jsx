@@ -35,8 +35,8 @@ const Banner = ({setInputValue , setIsTrueBtn}) => {
 
 
 Banner.propTypes = {
-    setInputValue: PropTypes.string,
-    setIsTrueBtn: PropTypes.bool
+    setInputValue: PropTypes.func,
+    setIsTrueBtn: PropTypes.func
 }
 
 export default Banner;
