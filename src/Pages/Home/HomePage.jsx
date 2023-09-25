@@ -1,10 +1,13 @@
 
+import { useState } from "react";
 import AllCard from "../../Components/AllCard/AllCard";
 import Banner from "../../Components/Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 
 const HomePage = () => {
 
+    const [inputValue , setInputValue] = useState('');
+    const [isTrueBtn , setIsTrueBtn] = useState(false);
 
 
     const showCards = useLoaderData();
@@ -12,8 +15,8 @@ const HomePage = () => {
 
     return (
         <div>
-            <Banner></Banner>
-            <AllCard showCards={showCards}></AllCard>
+            <Banner setIsTrueBtn={setIsTrueBtn} setInputValue={setInputValue}></Banner>
+            <AllCard isTrueBtn={isTrueBtn} inputValue={inputValue} showCards={showCards}></AllCard>
         </div>
     );
 };

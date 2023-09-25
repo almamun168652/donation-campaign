@@ -22,7 +22,7 @@ const Donation = () => {
     }, [])
 
     return (
-        <div className="max-w-screen-xl mx-auto px-4 md:px-8 mt-20">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8">
             {
                 noFound ? <p className="mt-36 text-2xl font-bold flex items-center justify-center">{noFound}</p> : <div>
                     <div>

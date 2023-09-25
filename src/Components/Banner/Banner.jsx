@@ -1,5 +1,12 @@
+import PropTypes from 'prop-types';
+const Banner = ({setInputValue , setIsTrueBtn}) => {
 
-const Banner = () => {
+    const handleInputSearch = (e) => {
+        e.preventDefault();
+        setInputValue(e.target.inputSearch.value);
+        e.target.inputSearch.value = '';
+        setIsTrueBtn(true);
+    }
     
     return (
         <div className="w-full h-[80vh] justify-center bg-[url(https://i.ibb.co/yp4ZVNr/Rectangle-4281.png)] bg-no-repeat bg-cover bg-center">
@@ -8,7 +15,7 @@ const Banner = () => {
                     <h1 className="text-[#0B0B0B] mt-32 md:mt-0 font-bold text-2xl px-4 md:text-4xl mb-10">I Grow By Helping People In Need</h1>
                     <div>
                         <div className="max-w-sm md:max-w-[470px] text-center mx-auto px-4 ">
-                            <form>
+                            <form onSubmit={handleInputSearch}>
                                 <input
                                     className="w-3/4 p-2 text-dark-1 placeholder:text-[#0B0B0B66] bg-white outline-none border border-gray-300 rounded-l-lg"
                                     type="text" name="inputSearch"
@@ -25,6 +32,12 @@ const Banner = () => {
         </div>
     );
 };
+
+
+Banner.propTypes = {
+    setInputValue: PropTypes.string,
+    setIsTrueBtn: PropTypes.bool
+}
 
 export default Banner;
 
