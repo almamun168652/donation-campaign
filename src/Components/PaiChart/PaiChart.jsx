@@ -61,11 +61,11 @@ const PaiChart = () => {
             <div className='w-full text-center md:mt-10 flex flex-col md:flex-row md:gap-10'>
                 <div className='flex gap-2 items-center justify-center'>
                     <span className='font-semibold'>Your Donation</span>
-                    <img className='h-3 mt-1' src='./donation-green.png' alt="" />
+                    <img className='h-3 mt-1' src='https://i.ibb.co/cCRLBzv/rectangle1.png' alt="" />
                 </div>
                 <div className='flex gap-2 items-center justify-center'>
                     <span className='font-semibold'>Total Donation</span>
-                    <img className='h-3 mt-1' src='./donation-red.png' alt="" />
+                    <img className='h-3 mt-1' src='https://i.ibb.co/cLWjGB4/rectangle2.png' alt="" />
                 </div>
             </div>
         </div>
